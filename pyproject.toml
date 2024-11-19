@@ -1,22 +1,24 @@
 [project]
 name = "retrieval-tools"
-version = "2024.11.17"
+version = "2024.11.19"
 authors = [
   { name="Frank Liu", email="frank.liu@voyageai.com" },
 ]
-requires-python = '>=3.9
+requires-python = ">=3.9"
 description = "Useful tools for building search/retrieval systems."
 readme = "README.md"
 dependencies=[
     "numpy >= 1.24.0",
-    "PyMuPDF >= 1.24.3"
+    "PyMuPDF >= 1.24.3",
+    "anthropic >= 0.28.0",
 ]
-
 classifiers=[
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: BSD License",
 ]
 
 [project.urls]
-Homepage = "https://github.com/fzliu/voyageai-toolbox"
-Issues = "https://github.com/fzliu/voyageai-toolbox/issues"
+Homepage = "https://github.com/fzliu/retrieval-toolbox"
+Issues = "https://github.com/fzliu/retrieval-toolbox/issues"
+
+[tool.setuptools]
+packages = ["retrieval"]
