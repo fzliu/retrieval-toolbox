@@ -36,8 +36,9 @@ def pdf_path_to_screenshots(path: str, zoom: float = 1.0) -> list[Image.Image]:
     if not path.endswith(".pdf"):
         raise ValueError("Invalid path")
     
-    # Extract screenshots
     pdf = pymupdf.open(path, filetype="pdf")
+
+    # Extract screenshots
     images = _pdf_to_screenshots(pdf, zoom = zoom)
     pdf.close()
 
@@ -67,7 +68,6 @@ def pdf_url_to_screenshots(url: str, zoom: float = 1.0) -> list[Image.Image]:
     pdf = pymupdf.open(stream=pdf_stream, filetype="pdf")
     
     # Extract screenshots
-    pdf = pymupdf.open(url, filetype="pdf")
     images = _pdf_to_screenshots(pdf, zoom = zoom)
     pdf.close()
 
