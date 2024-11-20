@@ -37,6 +37,12 @@ def _chunk_markdown_by_headers(text: str) -> list[str]:
 
     chunks = [""]
     for line in text.split("\n"):
+        line = line.strip(" ")
+
+        # Ignore empty lines
+        if not line:
+            continue
+
         # Count the number of '#'s that the line begins with
         if m := re.search("#+", line):
             l = len(m.group(0))
@@ -44,7 +50,7 @@ def _chunk_markdown_by_headers(text: str) -> list[str]:
             headers[l:] = [None] * (6 - l)
             chunks.append("\n".join(filter(None, headers)))
         else:
-            chunks[-1] += line
+            chunks[-1] += "\n" + line
 
     # Remove the first chunk, if empty (i.e. document starts with a header)
     if not chunks[0]:
